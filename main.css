@@ -42,7 +42,7 @@ img {
 .centerembed {
     position: absolute;
     margin: auto;
-    top: 15%;
+    top: 17%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
