@@ -46,6 +46,13 @@ img {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.lowerembed {
+    position: absolute;
+    margin: auto;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 @keyframes colorize {
     0% {
