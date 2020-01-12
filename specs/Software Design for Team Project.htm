@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://etarim-cs410-winona.mybluemix.net/SoftwareDesign/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Software Design for Team Project</title>
+	
+	<link rel="stylesheet" href="./Software Design for Team Project_files/style.css">
+</head>
+<body>
+<h1>Software Design for Team Project</h1>
+<hr>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="http://etarim-cs410-winona.mybluemix.net/SoftwareDesign/#Preface">Preface</a></li> 
+<li><a href="http://etarim-cs410-winona.mybluemix.net/SoftwareDesign/#Context">Context</a></li> 
+<li><a href="http://etarim-cs410-winona.mybluemix.net/SoftwareDesign/#UserInterfaces">User Interfaces</a></li> 
+<li><a href="http://etarim-cs410-winona.mybluemix.net/SoftwareDesign/#DatabaseSchemaDesign">Database Schema Design</a></li> 
+<li><a href="http://etarim-cs410-winona.mybluemix.net/SoftwareDesign/#PrincipleObjects">PrincipleObjects</a></li> 
+<li><a href="http://etarim-cs410-winona.mybluemix.net/SoftwareDesign/#UMLDiagrams">UML Diagrams</a></li> 
+<li><a href="http://etarim-cs410-winona.mybluemix.net/SoftwareDesign/#ContributionsSummary">Contributions Summary</a></li> 
+<li><a href="http://etarim-cs410-winona.mybluemix.net/SoftwareDesign/#AcceptanceParagraph">Acceptance Paragraph</a></li> 
+<li><a href="http://etarim-cs410-winona.mybluemix.net/SoftwareDesign/#TestAndCodingAssignments">Test and Coding Assignments</a></li> 
+
+</ul>
+
+
+<hr>
+<h2 id="Preface">Preface</h2>
+<p>Team Etarium --- The Twisting Haunt</p>
+
+<h4>Members</h4>
+<li>Emily Clark</li>
+<li>Ben Bolin</li>
+<li>Jason Richter</li>
+<li>Samuel Fiscus</li><hr>
+<h2 id="Context">Context</h2>
+
+<img src="./Software Design for Team Project_files/UseCase_Battle.png" alt="Battle Use Case">
+
+<h3>Battle Use Case</h3>
+<p>This demonstrates the actions that can be taken by different entities within an encounter battle. </p>
+
+<blockquote>
+    <p>Player</p>
+    <li>Phys Attack</li>
+    <li>Spec Attack / Support 1/*</li>
+    <li>Use Item</li>
+</blockquote>
+
+<blockquote>
+    <p>NPC (AI)</p>
+    <li>Phys Attack</li>
+    <li>Spec Attack 1/*</li>
+</blockquote>
+
+<blockquote>
+    <p>Client</p>
+    <li>Generate Encounter</li>
+    <li>Calculate Encounter</li>
+    <li>Conclude Encounter</li>
+</blockquote>
+
+<img src="./Software Design for Team Project_files/Save_Load_UseCase.png" alt="Save and Load Use Case">
+
+<h3>Save and Load Use Case</h3>
+<p>This demonstrates the actions that can be taken by the player interact with persistent states.</p>
+
+<blockquote>
+    <li>New Game</li>
+    <li>Save</li>
+    <li>Load</li>
+</blockquote>
+
+<img src="./Software Design for Team Project_files/Cell_Interaction_Travel_UseCase.png" alt="Cell Interaction and Travel Use Cases">
+
+<h3>Cell Interaction and Travel Use Cases</h3>
+<p>This demonstrates the commands that can be taken by the player to interact with each cell of the map.</p>
+
+<blockquote>
+    <li>North</li>
+    <li>South</li>
+    <li>East</li>
+    <li>West</li>
+    <li>Take 1/*</li>
+    <li>Ignore</li>
+</blockquote>
+<hr>
+<h2 id="UserInterfaces">User Interfaces</h2>
+<p>
+In this section, document your user interfaces and GUI design.
+</p>
+
+<h3>Start Menu</h3>
+<img src="./Software Design for Team Project_files/StartMenu.png" alt="Start Menu">
+<p>Redirect options will be:</p>
+<blockquote>
+    <li>New Game - player can choose predetermined character or design their own.</li>
+    <li>Load Game - player can choose previously saved game, or be redirected to new game</li>
+    <li>Help - explanation of menu options / user commands</li>
+    <li>Readme - info about game design</li>
+</blockquote>
+
+
+<h3>Main Game</h3>
+<img src="./Software Design for Team Project_files/MainGame.png" alt="Main Game">
+<p>Main menu follows system architecture model from SRS:</p>
+<blockquote>
+    <img src="./Software Design for Team Project_files/SystemArchitectureCutout.png" alt="Windowed Application">
+    <br>
+    <li>Graphical Output - map</li>
+    <li>Textual Output - descriptions and information</li>
+    <li>Textual Input - ser commands</li>
+</blockquote>
+
+
+
+<h3>Activity Diagram for Player Actions</h3>
+<img src="./Software Design for Team Project_files/Activity_Diagram.png" alt="Player Actions">
+<hr>
+<h2 id="DatabaseSchemaDesign">Database Schema Design</h2>
+<p>
+This should describe the design of your database schema.  If your design does not use a database, mention it here.
+</p>
+<img src="./Software Design for Team Project_files/erdplus-diagram_3.png"><br>
+<p>
+   <br>
+    The database will store the information for our cells, entities (in this diagram listed as players), equipables, useables, and inventory.
+    It is an integral portion of the system and contains the information necessary to generate encounters, items, and quests.
+    <br>
+    Some Key Components Include:
+    </p><li>Encounter will be a table consisting of at max 5 NPCs. NPC1 must be populated by an entity, NPC2-5 can be null.</li>
+    <li>Each cell will have a description by its [x][y] coordinate. A unique description or message will appear via the /INSPECT command. This is where quest relevant information will be stored.</li>
+    <li>Inventory table will contain the user’s inventory. At this time the user can hold 15 items. This can and probably will change with ease.</li>
+    <li>Inventory table will also contain the inventory of NPCs. NPCs will store significantly less items than the user’s inventory, but follow same format. Any items still in their inventory are drop loot in encounters. We have opted to “let the goblin drink” (an NPC can use the items in its inventory during battle if it chooses.)</li>
+	<li>Addendum: This will likely play a more serious role in later development as we tune our AI for the battles more than what currently exists.</li>
+    <li>Inventory, Equipable, and Useable are structured similarly to how the Encounter &amp; Entity tables are structured. Finite number with tables existing to store the objects.</li>
+    <li>We have added the capacity for status ailments by having useable contain a “duration” time.</li><hr>
+l<h2 id="PrincipleObjects">Principle Objects</h2>
+<p>
+Include in this section the principle objects using class diagrams. 
+</p>
+<img src="./Software Design for Team Project_files/Old_UML.png"><br>
+<img src="./Software Design for Team Project_files/UMLDraft.png"><br>
+<hr>
+<h2 id="UMLDiagrams">UML Diagrams</h2>
+<p>
+In this section, include the UML Diagrams for the components of your system not already included above
+ (state diagram, sequence diagrams).
+</p>
+<h2 id="UMLDiagrams">UML Diagrams</h2>
+<p>
+In this section, include the UML Diagrams for the components of your system not already included above
+ (state diagram, sequence diagrams).
+<img src="./Software Design for Team Project_files/StateDiagram.png"><br>
+</p>
+<img src="./Software Design for Team Project_files/Save_and_Load_Game_-_Page_1_1.png"><br>
+Save And Load Use Case Diagram.<br>
+<p>On the menu page of the program, the user will be presented with a choice to load their game or start a new game. Related to these functions is also saving the game.
+The Save and Load functions call to local storage. Local storage returns the files. 
+Once a file is successfully loaded in it will contact the database and interact with the client to generate the world. After this, gameplay begins.
+</p>
+<img src="./Software Design for Team Project_files/Cell_Option_Diagram_-_Page_1.png"><br>
+Cell Option Use Case Diagram
+<p>
+When a player enters a cell, they are presented with options including travel, encounters, inspecting the environment, and taking items. 
+The database stores information about the cells, including if an encounter exists and if items are present within a specific spot.
+</p>
+<hr>
+<h2 id="ContributionsSummary">Contributions Summary</h2>
+
+<h4>Preface</h4>
+	<blockquote>Sam</blockquote>
+<h4>Context</h4>
+	<blockquote>Sam</blockquote>
+
+<h4>UserInterfaces</h4>
+	<blockquote>Sam - Discussion and Visual Aids</blockquote>
+	<blockquote>Jason - Activity</blockquote>
+	
+<h4>DatabaseSchemaDesign</h4>
+	<blockquote>Ben and Emily</blockquote>
+
+<h4>PrincipleObjects</h4>
+	<blockquote>All - Class diagrams</blockquote>
+
+<h4>UMLDiagrams</h4>
+	<blockquote>Ben and Emily = Sequence</blockquote>
+	<blockquote>Jason - State</blockquote>
+
+
+<h4>AcceptanceParagraph</h4>
+    <blockquote>Jason</blockquote>
+<h4>TestAndCodingAssignments</h4>
+	<blockquote>Ben</blockquote>
+<hr>
+<h2 id="AcceptanceParagraph">Acceptance Paragraph</h2>
+<p>As the user representative, I think that the general direction of this project
+is positive. The diagrams are an accurate representation of the idea of the end
+goal. These diagrams are a good starting point for this project.
+</p>
+<p>-Jason Richter, User Representative</p>
+<hr>
+<h2 id="TestAndCodingAssignments">Test and Coding Assignments</h2>
+
+<p>
+
+Sam - GUI Testing . <br>
+
+Ben - Testing the Database <br>
+
+Jason -  Testing character Creation and Combat <br>
+
+Emily - Testing storyline and commands.    <br>
+
+</p>	
+<hr>
+<p>This section intentionally left blank. </p> 
+<pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+<p>END OF THE DOCUMENT</p>
+<hr>
+
+
+</body></html>

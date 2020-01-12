@@ -67,6 +67,46 @@ button:hover {
   color: #1a1701;
 }
 
+.content .sub-navbar {
+  background-color: #6B5D03;
+  overflow: hidden;
+}
+
+.content .sub-navbar a {
+  float: left;
+  color: #1a1701;
+  text-align: center;
+  padding: 14px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: HeadingFont;
+}
+
+.content .sub-navbar a:hover {
+  background-color: #4d4302;
+  color: #1a1701;
+}
+
+.content .og-docs-navbar {
+  background-color: #6B5D03;
+  overflow: hidden;
+}
+
+.content .og-docs-navbar a {
+  float: left;
+  color: #1a1701;
+  text-align: center;
+  padding: 14px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: HeadingFont;
+}
+
+.content .og-docs-navbar a:hover {
+  background-color: #4d4302;
+  color: #1a1701;
+}
+
 .content a {
   color: #6B5D03;
 }

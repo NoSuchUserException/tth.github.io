@@ -18,14 +18,33 @@
             <br><br>
             <div class="content">
         <h2>Technical Details</h2>
-        <h3>Infrastructure</h3>
+        <div class="sub-navbar">
+            <a href="#frameworks">Frameworks</a>
+            <a href="#infrastructure">Infrastructure</a>
+            <a href="#algorithms">Algorithms</a>
+            <a href="#pipelines">Pipelines</a>
+            <a href="#custom-tools">Custom Tools</a>
+            <a href="#og-docs">Original Documentation</a>
+        </div>
+        <a id="frameworks"><h3>Frameworks</h3></a>
+        <p>
+            The Twisting Haunt is written in its entirety using Java 8. The application handles its outside dependencies via Maven, and notable dependencies include
+            Jackson, MongoDB, JUnit 4, and our custom library Entity Library. <br/> <br/>
+            The UI is written using a Java native framework, Java Swing. Why Swing? Because we didn't know any better, and now it looks too cool to change.
+            More realistically, we have considered migrating to JavaFX, or even converting the game into a REST or SOAP based web app, but determined that
+            the amount of refactoring necessary and the additional features offered to us were not worth the amount of rework necessary for the UI. <br/><br/>
+            Our Unit Tests are performed using JUnit, with assistance of Mockito where necessary - dominantly where database calls are necessary to populate Java objects.<br/><br/>
+            Jackson binds our data pulled from our Mongo database and our save files to appropriate Java objects from their native file formats (BSON and JSON respectively). 
+        </p>
+        <a id="infrastructure"><h3>Infrastructure</h3></a>
         <p></p>
-        <h3>Algorithms</h3>
+        <a id="algorithms"><h3>Algorithms</h3></a>
         <p></p>
-        <h3>Pipelines</h3>
+        <a id="pipelines"><h3>Pipelines</h3></a>
         <p></p>
-        <h3>Custom Tools</h3>
-        <p>Custom Tools were developed to assist in the development of The Twisting Haunt and to remain DRY. These tools include the Entity Library,
+        <a id="custom-tools"><h3>Custom Tools</h3></a>
+        <p>
+            Custom Tools were developed to assist in the development of The Twisting Haunt and to remain DRY. These tools include the Entity Library,
             a package created that houses all custom objects for The Twisting Haunt, and Content Engine, which is a UI used for CRUD operations in the Twisting Haunt database
             to dramatically reduce bugs and improve time to enter new content into the game.
             <br/><br/>
@@ -33,6 +52,22 @@
             <a href="etarium.us/contentengine.html">Content Engine</a> <br/>
             <a href="etarium.us/entitylibrary.html">Entity Library</a>
         </p>
+        <a id="og-docs"><h3>Original Documentation</h3></a>
+        <p>
+            <b>All information past this point should be considered deprecated.</b><br/><br/>
+            Below are original design documents, including UML diagrams, use cases, application requirements, testability matrices, and glossary. <br/><br/>
+            Please keep in mind that this documentation has not been updated since May of 2018.
+            </b>
+            <div class="og-docs-navbar">
+                <a href="#diagrams">Diagrams</a>
+                <a href="#glossary">Glossary</a>
+                <a href="#testability">Testability Matrix</a>
+                <a href="#requirements">System Requirements</a>
+                <a href="#architecture">System Architecture</a>
+                <a href="#usecases">Use Cases</a>
+            </div>
+        </p>
+        <a id="#diagrams"><h3>Diagrams</h3></a>
         </div>
         <br><br>
         <p>GitHub: <a class="link" href="https://github.com/etarium/TheTwistingHaunt">https://github.com/etarium/TheTwistingHaunt</a></p>
