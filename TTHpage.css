@@ -33,6 +33,13 @@ p{
 	font-family: BodyFont;
 	font-size: 20px;
 }
+ol {
+  font-family: BodyFont;
+  font-size: 20px;
+}
+blockquote {
+  font-family: BodyFont;
+}
 button{
   background-color: #6B5D03;
   border: none;
@@ -219,3 +226,9 @@ button:hover {
   to {opacity: 1}
 }
 
+table {
+  font-family: BodyFont;
+  font-size: 20px;
+  border: solid;
+  border-color: #6B5D03;
+}
