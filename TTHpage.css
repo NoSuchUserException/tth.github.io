@@ -25,6 +25,10 @@ h2 {
   font-family: BodyFont;
   font-size: 30px;
 }
+h3 {
+  font-family: BodyFont;
+  font-size: 25px;
+}
 p{
 	font-family: BodyFont;
 	font-size: 20px;
@@ -63,6 +67,13 @@ button:hover {
   color: #1a1701;
 }
 
+.content a {
+  color: #6B5D03;
+}
+
+.content a:hover, a:active {
+  color: #4d4302;
+}
 * {box-sizing:border-box}
 
 /* Slideshow container */
