@@ -41,15 +41,32 @@
          <a id="infrastructure">
             <h3>Infrastructure</h3>
          </a>
+         <p>
+             The infrastructure for The Twisting Haunt is fairly simple. The remote database for the game is a Mongo database hosted on Google Cloud Platform.
+             The application itself is not currently hosted on any remote page, and has only been created as an executable .jar via CLI. Future iterations hope to
+             harness the power of Docker and Google Cloud Platform's App Engine to allow gameplay from a browser. Static webpages including these ones are hosted from Github.
+             Work management is also on Github, following a Kanban style. Source repositories are also all git based.
+         </p>
          <p></p>
          <a id="algorithms">
             <h3>Algorithms</h3>
          </a>
-         <p></p>
+         <p>
+             Recursion is the name of the game with The Twisting Haunt. The combat system relies on recursive algorithms to determine
+             whether all enemies or the player have fainted, which send the flag to end the combat state. A recursive algorithm is also used
+             to power cycles of the game based on the player's actions. <br/><br/>
+             Also present are switch cases and binary search trees, which are used to check for valid commands entered through the input box, and 
+             when querying the database to fetch the next block of cells for the player. Cells are loaded on a "per instance" basis, to reduce running overhead
+             and to reduce bandwidth demands when the data may not be necessary.
+         </p>
          <a id="pipelines">
             <h3>Pipelines</h3>
          </a>
-         <p></p>
+         <p>
+             Currently only the Entity Library has an established pipeline, harnessing Github's Workflows and new package management capabilities. <br/>
+             Exploration into Azure DevOps pipelines for more robust image and artifact management is underway, and The Twisting Haunt's ecosystem may be migrated
+             to a more robust pipeline tool as the applications become closer to feature complete.
+         </p>
          <a id="custom-tools">
             <h3>Custom Tools</h3>
          </a>
@@ -59,8 +76,8 @@
             to dramatically reduce bugs and improve time to enter new content into the game.
             <br/><br/>
             More information regarding custom tools can be found on their respective pages: <br/>
-            <a href="etarium.us/contentengine.html">Content Engine</a> <br/>
-            <a href="etarium.us/entitylibrary.html">Entity Library</a>
+            <a href="https://github.com/etarium/TTH_ContentEngine">Content Engine</a> <br/>
+            <a href="https://github.com/etarium/TTH_EntityLibrary">Entity Library</a>
          </p>
          <a id="og-docs">
             <h3>Original Documentation</h3>
